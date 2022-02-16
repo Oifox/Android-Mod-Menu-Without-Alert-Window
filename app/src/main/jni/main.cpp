@@ -18,8 +18,7 @@
 
 using namespace std;
 template <typename T>
-struct monoArray
-{
+struct monoArray {
     void* klass;
     void* monitor;
     void* bounds;
@@ -38,7 +37,6 @@ struct monoArray
 std::string jstring2string(JNIEnv *env, jstring jStr) {
     if (!jStr)
         return "";
-
     const jclass stringClass = env->GetObjectClass(jStr);
     const jmethodID getBytes = env->GetMethodID(stringClass, "getBytes", "(Ljava/lang/String;)[B");
     const jbyteArray stringJbytes = (jbyteArray) env->CallObjectMethod(jStr, getBytes, env->NewStringUTF("UTF-8"));
@@ -168,7 +166,7 @@ bool gomap, gamemode = false;
 
 int smscount = 1;
 bool chatfor = false;
-string textChat = "TELEGRAM: @INSINETEAMDEV - ЛУЧШИЕ ЧИТЫ НА БЛОКПОСТ МОБАЙЛ";
+string textChat = "TELEGRAM: @NORKAWARE - ЛУЧШИЕ ЧИТЫ";
 bool isauth = false;
 string token = "Null";
 
@@ -226,7 +224,7 @@ JNIEXPORT jobjectArray JNICALL Java_il2cpp_Main_getFeatures(JNIEnv *env, jobject
 		newPage("Skinchanger", "icon3.png").c_str(),
 		newPage("Map hack", "icon4.png").c_str(),
 		newPage("Chat hack", "icon5.png").c_str(),
-		newPage("TikTok", "icon6.png").c_str(),
+		newPage("Creator", "icon6.png").c_str(),
 		
 		// PLAYERS 0
 		newText(0, 0, "Movement").c_str(),
@@ -294,19 +292,9 @@ JNIEXPORT jobjectArray JNICALL Java_il2cpp_Main_getFeatures(JNIEnv *env, jobject
 		newButton(4, 72, "Auth token").c_str(),
 		
 		// TIKTOK 5
-		newText(5, 0, "Выкладывай видео с читом в тикток, указывая @insineteamdev и ставив тег #isnineteamdev и сможешь попасть сюда!").c_str(),
-		newText(5, 0, "Marceldosvyzev").c_str(),
-		newLink(5, "TIKTOK 1", "https://vm.tiktok.com/ZSeq5bakE/").c_str(),
-		newLink(5, "TIKTOK 2", "https://vm.tiktok.com/ZSebpa2Xs/").c_str(),
-		newText(5, 0, "Ebanina-Kozla").c_str(),
-		newLink(5, "TIKTOK 1", "https://vm.tiktok.com/ZSeqafyPA/").c_str(),
-		newText(5, 0, "Матье бал").c_str(),
-		newLink(5, "TIKTOK 1", "https://vm.tiktok.com/ZSebpVs1k/").c_str(),
-		newText(5, 0, "Govno_bobra 1337").c_str(),
-		newLink(5, "TIKTOK 1 (Разьеб нахуй)", "https://vm.tiktok.com/ZSebpHV4t/").c_str(),
-		newLink(5, "TIKTOK 2", "https://vm.tiktok.com/ZSebpW4f1/").c_str(),
-		newText(5, 0, "IvanZolo248").c_str(),
-		newLink(5, "TIKTOK 1", "https://vm.tiktok.com/ZSebpQFEn/").c_str()
+		newText(5, 0, "Free Menu Source").c_str(),
+		newText(5, 0, "Creator | Norka").c_str(),
+		newLink(5, "Telegram", "https://t.me/norkaware").c_str(),
 	};
 	
 	int Total_Feature = (sizeof features / sizeof features[0]); 
