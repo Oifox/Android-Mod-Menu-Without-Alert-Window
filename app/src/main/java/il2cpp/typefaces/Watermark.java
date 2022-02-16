@@ -28,8 +28,7 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Watermark
-{
+public class Watermark {
 	protected int WIDTH,HEIGHT;
 	protected Context context;
 	
@@ -93,8 +92,7 @@ public class Watermark
 		waterText.setText("INSINE " + Integer.toString(batery) + "% | " + time);
 	}
 	
-	protected void init(Context context)
-	{
+	protected void init(Context context) {
 		this.context = context;
 		
 		menulayout = new LinearLayout(context);
@@ -137,7 +135,6 @@ public class Watermark
 		
 		int width = Resources.getSystem().getDisplayMetrics().widthPixels;
 		int height = Resources.getSystem().getDisplayMetrics().heightPixels;
-		// parentBox.setOnTouchListener(handleMotionTouch);
 		wmManager = ((Activity)context).getWindowManager();
 		int aditionalFlags=0;
 		if (Build.VERSION.SDK_INT >= 11)
@@ -160,8 +157,7 @@ public class Watermark
 		wmParams.gravity = Gravity.TOP | Gravity.LEFT;
 	}
 
-	public void setIconImage()
-	{
+	public void setIconImage() {
 		//iconView = new ImageView(context);
 		//setAss(iconView, "icon.png");
 	}
@@ -174,33 +170,30 @@ public class Watermark
 		}
 	}
 	
-	public void setWidth(int px)
-	{
+	public void setWidth(int px) {
 		FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams)menulayout.getLayoutParams();
 		lp.width = px;
 		menulayout.setLayoutParams(lp);
 		WIDTH=px;
 	}
-	public void setHeight(int px)
-	{
+	
+	public void setHeight(int px) {
 		FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams)menulayout.getLayoutParams();
 		lp.height = px;
 		menulayout.setLayoutParams(lp);
 		HEIGHT=px;
 	}
+	
 	public int getWidth(int px) {return WIDTH;}
 	public int getHeight(int px) {return HEIGHT;}
 
-	
-	public int dpi(float dp)
-	{
+	public int dpi(float dp) {
 		float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (dp * scale + 0.5f);
 	}
 	
 	
-	public Watermark(Context context)
-	{
+	public Watermark(Context context) {
 		init(context);
 		
 		parentBox.removeAllViews();
@@ -209,10 +202,7 @@ public class Watermark
 		wmManager.addView(parentBox, wmParams);
 	}
 
-
-
-	View.OnTouchListener handleMotionTouch = new View.OnTouchListener()
-	{
+	View.OnTouchListener handleMotionTouch = new View.OnTouchListener() {
 		private float initX;          
 		private float initY;
 		private float touchX;
@@ -220,11 +210,8 @@ public class Watermark
 
 		double clock=0;
 		@Override
-		public boolean onTouch(View vw, MotionEvent ev)
-		{
-
-			switch (ev.getAction())
-			{
+		public boolean onTouch(View vw, MotionEvent ev) {
+			switch (ev.getAction()) {
 				case MotionEvent.ACTION_DOWN:
 
 					initX = wmParams.x;
@@ -248,6 +235,6 @@ public class Watermark
 	};
 	
 	private int convertDipToPixels(int i) {
-        return (int) ((((float) i) * context.getResources().getDisplayMetrics().density) + 0.5f);
-    }
+            return (int) ((((float) i) * context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
 }
