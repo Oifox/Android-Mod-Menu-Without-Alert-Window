@@ -37,12 +37,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class Menu
-{
-	protected int WIDTH,HEIGHT;
-    
-    public Typeface getfont(Context context) {Typeface bruuh = Typeface.createFromAsset(context.getAssets(), "font.ttf"); return bruuh;}
-	
+public class Menu {
+        protected int WIDTH,HEIGHT;
+        public Typeface getfont(Context context) {Typeface bruuh = Typeface.createFromAsset(context.getAssets(), "font.ttf"); return bruuh;}
 	protected Context context;
 	protected boolean isIconVisible;
 	protected boolean isMenuVisible;
@@ -109,8 +106,7 @@ public class Menu
 		void onText(int pageid, int featureid, int value);
 	}
 	
-	protected void init(Context context)
-	{
+	protected void init(Context context) {
 		isCrosshairHide = 1;
 		isWatermarkHide = 1;
 		isMenuHide = 0;
@@ -144,25 +140,25 @@ public class Menu
 		wmParams.gravity = Gravity.TOP | Gravity.LEFT;
 	}
 
-	public void setIconImage()
-	{
+	public void setIconImage() {
 		iconView = new ImageView(context);
 		setAss(iconView, "icon.png");
 	}
-	public void setWidth(int px)
-	{
+	
+	public void setWidth(int px) {
 		FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams)menulayout.getLayoutParams();
 		lp.width = px;
 		menulayout.setLayoutParams(lp);
 		WIDTH=px;
 	}
-	public void setHeight(int px)
-	{
+	
+	public void setHeight(int px) {
 		FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams)menulayout.getLayoutParams();
 		lp.height = px;
 		menulayout.setLayoutParams(lp);
 		HEIGHT=px;
 	}
+	
 	public int getWidth(int px) {return WIDTH;}
 	public int getHeight(int px) {return HEIGHT;}
 
@@ -171,25 +167,14 @@ public class Menu
 		animation.setDuration(550);
 		animation.addListener(new Animator.AnimatorListener() {
                 @Override
-                public void onAnimationStart(Animator animation) {
-
-                }
-
+                public void onAnimationStart(Animator animation) {}
                 @Override
-                public void onAnimationEnd(Animator animation) {
-
-				}
-
+                public void onAnimationEnd(Animator animation) {}
                 @Override
-                public void onAnimationCancel(Animator animation) {
-
-                }
-
+                public void onAnimationCancel(Animator animation) {}
                 @Override
-                public void onAnimationRepeat(Animator animation) {
-
-                }
-            });
+                public void onAnimationRepeat(Animator animation) {}
+        });
 		animation.start();
 		if (Main.hide) {
 			iconView.setVisibility(View.INVISIBLE);
@@ -213,28 +198,16 @@ public class Menu
 		animation.setDuration(500);
 		animation.addListener(new Animator.AnimatorListener() {
                 @Override
-                public void onAnimationStart(Animator animation) {
-
-                }
-
+                public void onAnimationStart(Animator animation) {}
                 @Override
-                public void onAnimationEnd(Animator animation) {
-               
-				}
-
+                public void onAnimationEnd(Animator animation) {}
                 @Override
-                public void onAnimationCancel(Animator animation) {
-
-                }
-
+                public void onAnimationCancel(Animator animation) {}
                 @Override
-                public void onAnimationRepeat(Animator animation) {
-
-                }
-            });
+                public void onAnimationRepeat(Animator animation) {}
+         });
 		animation.start();
-		if (!isMenuVisible)
-		{
+		if (!isMenuVisible) {
 			isIconVisible = false;
 			parentBox.removeAllViews();
 			parentBox.addView(menulayout, WIDTH, HEIGHT);
@@ -275,8 +248,7 @@ public class Menu
 		
 	}
 	
-	public int dpi(float dp)
-	{
+	public int dpi(float dp) {
 		float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (dp * scale + 0.5f);
 	}
@@ -780,7 +752,6 @@ public class Menu
 	}
 	
 	public void addTextPage(int pageid, int featureid, String text) {
-		
 		LinearLayout linep = new LinearLayout(context);
 		linep.setLayoutParams(new LinearLayout.LayoutParams(-1, dpi(35)));
 		linep.setPadding(0, 5, 0, 5);
@@ -802,11 +773,8 @@ public class Menu
 		
 	}
 	
-	public Menu(Context context)
-	{
-		
+	public Menu(Context context) {
 		init(context);
-		
 		menulayout = new LinearLayout(context);
 		menulayout.setOrientation(LinearLayout.VERTICAL);
 		scrollItems = new ScrollView(context);
@@ -814,7 +782,6 @@ public class Menu
 		
 		setIconImage();
 		try {
-			
 			//menulayout.addView(scrollItems, -1, -1);
 			wmManager.addView(parentBox, wmParams);
 			showMenu();
@@ -932,10 +899,7 @@ public class Menu
 		}
 	}
 
-
-
-	View.OnTouchListener handleMotionTouch = new View.OnTouchListener()
-	{
+	View.OnTouchListener handleMotionTouch = new View.OnTouchListener() {
 		private float initX;          
 		private float initY;
 		private float touchX;
@@ -978,6 +942,6 @@ public class Menu
 	};
 	
 	private int convertDipToPixels(int i) {
-        return (int) ((((float) i) * context.getResources().getDisplayMetrics().density) + 0.5f);
-    }
+            return (int) ((((float) i) * context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
 }
