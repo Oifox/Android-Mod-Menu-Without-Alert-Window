@@ -675,7 +675,7 @@ public class Menu {
 		settingsView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(context, "tg: @insineteamdev | Created by: MIND", Toast.LENGTH_LONG).show();
+				Toast.makeText(context, "Telegram : @norkaware | Created by: Norka", Toast.LENGTH_LONG).show();
 				showPage(pageList.size()-1);
 			}
 		});
@@ -705,7 +705,7 @@ public class Menu {
 			chs[index].setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(context, "Прицел изменён!", Toast.LENGTH_SHORT).show();
+					Toast.makeText(context, "Crosshair changed!", Toast.LENGTH_SHORT).show();
 					ch.setCross(nms[idx]);
 				}
 			});
