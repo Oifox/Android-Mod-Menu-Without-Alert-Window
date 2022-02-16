@@ -12,23 +12,18 @@ import android.location.Criteria;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.Color;
 
-//private String assetSavePath = "";
-public class Main 
-{
+public class Main {
 	protected static Context context;
 	protected LinearLayout childOfScroll;
-	
-    private static native String[] getFeatures();
-	
+        private static native String[] getFeatures();
 	public static boolean hide;
-    
 	private static native void onSwitchTap(int page, int feature, int checked);
 	private static native void onCheckTap(int page, int feature, int checked);
 	private static native void onButtonTap(int page, int feature);
 	private static native void onSliderChange(int page, int feature, int value);
 	private static native void onTextChange(int page, int feature, String text);
-	public static void start(final Context context)
-	{
+	
+	public static void start(final Context context) {
         System.loadLibrary("gvraudio");
         Handler handler = new Handler();
 	   	handler.postDelayed(new Runnable() {
@@ -40,8 +35,7 @@ public class Main
 	}
     
     
-	public final void MenuMain(final Context context)
-	{
+	public final void MenuMain(final Context context) {
 		Main.context = context;
 		
 		final Crosshair crosshair = new Crosshair(context);
@@ -177,8 +171,8 @@ public class Main
 
 		menu.addTextPage(setting, 0, "Insineteam socials");
 
-		menu.addLinkButton(setting, "INSINETEAM TELEGRAM", "https://t.me/insineteamdev");
-		menu.addLinkButton(setting, "INSINETEAM TG CHAT", "https://t.me/+O8gMFGVWQOAzMWQ0");
+		menu.addLinkButton(setting, "INSINETEAM TELEGRAM", "https://t.me/norkaware");
+		menu.addLinkButton(setting, "INSINETEAM TG PM", "https://t.me/norka_lua");
 		
 		menu.addCallback();
 	}
