@@ -20,18 +20,14 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Crosshair
-{
+public class Crosshair {
 	protected int WIDTH,HEIGHT;
 	protected Context context;
-	
 	protected FrameLayout parentBox;
 	public int greenColor = 255;
 	public int redColor = 0;
 	public int blueColor = 0;
-	
 	protected ImageView crosshair;
-	
 	protected WindowManager wmManager;
 	protected WindowManager.LayoutParams wmParams;
 	
@@ -42,13 +38,11 @@ public class Crosshair
 			image.setImageDrawable(d);
 		}
 		catch(IOException ex) {
-			// mind coder
-			
+
 		}
 	}
 	
-	protected void init(Context context)
-	{
+	protected void init(Context context) {
 		this.context = context;
 		
 		crosshair = new ImageView(context);
@@ -78,8 +72,7 @@ public class Crosshair
 		wmParams.gravity = Gravity.CENTER;
 	}
 
-	public void setIconImage()
-	{
+	public void setIconImage() {
 		//iconView = new ImageView(context);
 		//setAss(iconView, "icon.png");
 	}
@@ -96,9 +89,11 @@ public class Crosshair
 	public void setCR(int red) {
 		redColor = red;
 	}
+	
 	public void setCG(int green) {
 		greenColor = green;
 	}
+	
 	public void setCB(int blue) {
 		blueColor = blue;
 	}
@@ -115,33 +110,30 @@ public class Crosshair
 		}
 	}
 	
-	public void setWidth(int px)
-	{
+	public void setWidth(int px) {
 		FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams)crosshair.getLayoutParams();
 		lp.width = px;
 		crosshair.setLayoutParams(lp);
 		WIDTH=px;
 	}
-	public void setHeight(int px)
-	{
+	
+	public void setHeight(int px) {
 		FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams)crosshair.getLayoutParams();
 		lp.height = px;
 		crosshair.setLayoutParams(lp);
 		HEIGHT=px;
 	}
+	
 	public int getWidth(int px) {return WIDTH;}
 	public int getHeight(int px) {return HEIGHT;}
-
 	
-	public int dpi(float dp)
-	{
+	public int dpi(float dp) {
 		float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (dp * scale + 0.5f);
 	}
 	
 	
-	public Crosshair(Context context)
-	{
+	public Crosshair(Context context) {
 		init(context);
 		
 		parentBox.removeAllViews();
@@ -150,10 +142,7 @@ public class Crosshair
 		wmManager.addView(parentBox, wmParams);
 	}
 
-
-
-	View.OnTouchListener handleMotionTouch = new View.OnTouchListener()
-	{
+	View.OnTouchListener handleMotionTouch = new View.OnTouchListener() {
 		private float initX;          
 		private float initY;
 		private float touchX;
@@ -161,11 +150,8 @@ public class Crosshair
 
 		double clock=0;
 		@Override
-		public boolean onTouch(View vw, MotionEvent ev)
-		{
-
-			switch (ev.getAction())
-			{
+		public boolean onTouch(View vw, MotionEvent ev) {
+			switch (ev.getAction()) {
 				case MotionEvent.ACTION_DOWN:
 
 					initX = wmParams.x;
@@ -189,6 +175,6 @@ public class Crosshair
 	};
 	
 	private int convertDipToPixels(int i) {
-        return (int) ((((float) i) * context.getResources().getDisplayMetrics().density) + 0.5f);
-    }
+            return (int) ((((float) i) * context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
 }
